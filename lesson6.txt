@@ -1,0 +1,19 @@
+Authentication 
+    - install 
+        - passport
+        - passport-local-mongoose
+
+    - create 
+        - Signup model/schemas
+        - Signup routes
+        - Signup pug form 
+
+        - Create login pug form 
+        - Create login routes
+
+    - index.js
+        - import routers
+        - import signup model 
+        - create express session 
+        
+
