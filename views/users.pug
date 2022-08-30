@@ -17,6 +17,7 @@ head
           th(scope='col') Lastname
           th(scope='col') Email
           th(scope='col') Role
+          th(scope='col') Action
         each user in users
           tbody
             tr
@@ -24,6 +25,8 @@ head
             td #{user.surname}
             td #{user.email}
             td #{user.role}
+            td 
+              a.btn.btn-primary(href="/editUser/"+user._id) Edit
   else
     p There are no registered users
 

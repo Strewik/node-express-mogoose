@@ -26,6 +26,10 @@ router.post('/signup', async(req, res) => {
 });
 
 
+
+
+//Update things
+
 router.get('/users', async (req, res) => {
     let items = await Signup.find();
 
@@ -33,6 +37,27 @@ router.get('/users', async (req, res) => {
 })
 
 
+router.get('/editUser/:id', async(req, res) => {
+    try{
+      const item = await Signup.findOne({_id:req.params.id});
+      res.render('editUser', {user:item});
+    }
+    catch(error){
+      res.send("User not found in DB");
+    }
+    });
+//update Routes
+router.post('/editedUser', async(req, res) => {
+    try{
+      await Signup.findOneAndUpdate({_id:req.query.id},req.body);
+      
+      res.redirect('/users');
+    }
+    catch(error){
+      res.send("Failed to update users");
+      console.log(error);
+    }
+   });  
 
 
 
